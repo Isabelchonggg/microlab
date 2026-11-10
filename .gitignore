@@ -1,0 +1,18 @@
+.venv/
+__pycache__/
+.pytest_cache/
+.DS_Store
+
+# Local credentials and environment settings (never publish)
+.env
+.env.*
+*.env
+secrets.toml
+.streamlit/secrets.toml
+*.pem
+*.key
+
+# Local editor and operating-system files
+.vscode/
+.idea/
+*.log
