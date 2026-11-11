@@ -7,18 +7,11 @@
 - Branch: `main`
 - Main file: `app.py`
 - Python: **3.13** (the version used for local verification)
-- Preferred app subdomain: `microlab`, if available
+- Live app: https://isabelchonggg-microlab.streamlit.app/
 - Secrets: none required
 
-The public GitHub repository already exists. Streamlit Community Cloud reads
-the application directly from its `main` branch.
-
-At [Streamlit Community Cloud](https://share.streamlit.io/), sign in with
-GitHub, choose **Create app**, then **Yup, I have an app**. Enter the settings
-above. In **Advanced settings**, select Python 3.13, then deploy. Complete
-GitHub authorisation or any service agreement yourself when prompted. Wait
-until the app loads, and copy the actual public URL displayed by Streamlit.
-Do not assume the preferred subdomain is available.
+The repository and Streamlit Community Cloud deployment already exist. Cloud
+reads the application directly from the repository's `main` branch.
 
 ## Update from VS Code after publication
 
@@ -42,13 +35,12 @@ Equivalent terminal commands, after reviewing the diff:
 ```bash
 git status
 git diff
-git add app.py solver.py models.py visualization.py explanations.py styling.py requirements.txt tests .streamlit/config.toml README.md DEPLOYMENT.md .gitignore
+git add app.py signalling_page.py moral_hazard_model.py moral_hazard_visuals.py moral_hazard_page.py solver.py models.py visualization.py explanations.py styling.py requirements.txt tests .streamlit/config.toml README.md DEPLOYMENT.md .gitignore
 git commit -m "Describe your MicroLab update"
 git push origin main
 ```
 
-The first push requires a GitHub remote and authentication. If these have not
-been configured, finish repository publication before using the update steps.
+VS Code may ask you to sign in to GitHub before the first sync from this machine.
 
 ## What is published
 
@@ -71,6 +63,8 @@ fallbacks without a remote font service.
 - Check the Intuitive Criterion explanation.
 - Apply a payoff edit and reset the original game.
 - Check phone width: controls and trees remain usable, with no clipped payoffs.
+- Check Moral Hazard Q1–Q6, particularly Q5's optimal-contract ray and Q6's
+  nonnegative-wage IC/IR graph, guided steps and linked clicks.
 
 Reference: [Streamlit deployment instructions](https://docs.streamlit.io/deploy/streamlit-community-cloud/deploy-your-app/deploy)
 and [automatic updates from GitHub](https://docs.streamlit.io/deploy/streamlit-community-cloud/manage-your-app/edit-your-app).

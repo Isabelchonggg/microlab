@@ -1,6 +1,6 @@
-# ♡ MicroLab — Signalling Model
+# ♡ MicroLab — Advanced Microeconomics study lab
 
-MicroLab is a Streamlit study app for Advanced Microeconomics Seminar 3. It has one scrollable Signalling Model page. Moral Hazard and Screening appear in navigation as future modules; neither is implemented yet.
+MicroLab is a Streamlit study app with linked visual modules for Seminar 3 Signalling and Seminar 2 Moral Hazard. Screening remains a future module.
 
 ## Run locally
 
@@ -27,6 +27,12 @@ The original seminar screenshot and overlay are not displayed or needed for depl
 
 At the bottom, edit Nature’s prior or any terminal payoff pair and click **Apply changes**. The page recalculates from the edited game. **Reset to original homework** restores all original values. Edits live in the current Streamlit session.
 
+## Explore Moral Hazard
+
+Choose **Moral Hazard Model**, then select Seminar 2 question Q1–Q6. The decision tree and mathematical graph stay visible together. Q1–Q4 use observable, contractible effort; Q5–Q6 use hidden effort and an output-contingent wage schedule. Q5 changes utility to linear and permits negative wages. Q6 uses square-root utility and nonnegative wages.
+
+Edit probabilities, outputs, cost, reservation utility and proposed wages to recalculate the tree, graph, incentive and participation checks, and profit comparison. Clicking an effort, terminal, constraint or equation focuses its linked calculation. **Show optimal contract** displays the best computed contract separately from the user's proposal. **Solve with me** reveals the derivation one step at a time. The Q6 solver respects the square-root domain: with the original values its high-effort optimum is \(w_0=0,w_1=25\), with IC binding and IR slack.
+
 ## Code structure
 
 | File | Purpose |
@@ -38,9 +44,12 @@ At the bottom, edit Nature’s prior or any terminal payoff pair and click **App
 | `visualization.py` | Two fixed-coordinate Plotly game-tree layouts with all information sets and payoff pairs. |
 | `math_display.py` | Typeset equations and step-by-step presentation. |
 | `styling.py` | Helvetica, four pen colours, cards, and bunny mascot. |
+| `moral_hazard_model.py` | Pure Seminar 2 expected utility, profit, feasibility, and six-scenario solutions. |
+| `moral_hazard_visuals.py` | Clickable principal–agent tree and question-specific mathematical graphs. |
+| `moral_hazard_page.py` | Shared Moral Hazard controls, linked maths, and guided solving. |
 | `tests/` | Mathematical, focused-diagram, and Streamlit interaction checks. |
 
-The economic calculations are separate from Streamlit styling and tree rendering. Future Moral Hazard and Screening models can be added as new page modules without changing the signalling solver.
+The economic calculations are separate from Streamlit styling and diagram rendering. Screening can be added without changing either existing solver.
 
 ## Verify
 

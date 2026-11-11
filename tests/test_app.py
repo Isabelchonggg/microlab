@@ -252,8 +252,12 @@ def test_prior_and_payoff_edits_recalculate_then_reset():
     assert app.session_state['game'].payoff('y','L','u')==0
 
 
-def test_future_models_are_placeholders():
+def test_moral_hazard_and_future_screening_navigation():
     app=open_app()
-    next(r for r in app.radio if r.label=='Choose a model').set_value('Moral Hazard Model · coming later').run()
+    next(r for r in app.radio if r.label=='Choose a model').set_value('Moral Hazard Model').run()
+    assert not app.exception
+    assert len(app.get('plotly_chart'))==2
+    assert any('Moral Hazard' in h.value for h in app.header)
+    next(r for r in app.radio if r.label=='Choose a model').set_value('Screening Model · coming later').run()
     assert any('Coming later' in i.value for i in app.info)
     assert not any(h.value=='The Maths Behind the Game' for h in app.header)

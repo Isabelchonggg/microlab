@@ -2,9 +2,10 @@
 import streamlit as st
 from models import homework_game
 from signalling_page import render_signalling_page
+from moral_hazard_page import render_moral_hazard_page
 from styling import CSS, MASCOT
 
-st.set_page_config(page_title='MicroLab · Signalling Model',page_icon='🌸',layout='wide')
+st.set_page_config(page_title='MicroLab · my lil econ lab',page_icon='🌸',layout='wide')
 st.markdown(CSS+MASCOT,unsafe_allow_html=True)
 if 'game' not in st.session_state:
     st.session_state.game=homework_game()
@@ -19,11 +20,12 @@ for key, value in {
     if key not in st.session_state:
         st.session_state[key]=value
 st.markdown('<div class="brand"><div class="brand-title">♡ MicroLab</div><div class="brand-sub">my lil econ lab</div></div>',unsafe_allow_html=True)
-with st.sidebar:
-    st.markdown('### Models')
-    model=st.radio('Choose a model',('Signalling Model','Moral Hazard Model · coming later','Screening Model · coming later'),label_visibility='collapsed')
+model=st.radio('Choose a model',('Signalling Model','Moral Hazard Model','Screening Model · coming later'),
+               horizontal=True,label_visibility='collapsed')
 if model=='Signalling Model':
     render_signalling_page()
+elif model=='Moral Hazard Model':
+    render_moral_hazard_page()
 else:
     st.header(model)
     st.info('Coming later. The Signalling Model is ready to explore now.')

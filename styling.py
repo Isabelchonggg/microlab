@@ -24,6 +24,10 @@ html, body, [data-testid="stApp"], input, textarea, button,
 [data-testid="stLatex"],.katex-display{max-width:100%;overflow-x:auto;overflow-y:hidden;padding:.2rem 0;}
 .mascot{position:fixed;bottom:16px;right:18px;z-index:50;pointer-events:none;width:58px;}
 @media(max-width:700px){.mascot{display:none}.brand-title{font-size:2rem}.block-container{padding-top:2.4rem;}[data-testid="stLatex"]{font-size:.86rem;}}
+@media(max-width:900px){
+ [class*="st-key-mh_visual_grid"] [data-testid="stHorizontalBlock"]{flex-direction:column!important;}
+ [class*="st-key-mh_visual_grid"] [data-testid="stColumn"]{width:100%!important;min-width:100%!important;flex:1 1 100%!important;}
+}
 </style>'''
 MASCOT = '''<div class="mascot" role="img" aria-label="A little bunny study companion">
 <svg viewBox="0 0 100 110" xmlns="http://www.w3.org/2000/svg">
